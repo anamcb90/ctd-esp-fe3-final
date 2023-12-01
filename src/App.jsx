@@ -11,6 +11,7 @@ import  {Routes, Route } from 'react-router-dom'
 function App() {
 
   const {theme} = useGlobalContext();
+ 
 
   return (
       <div className="App">

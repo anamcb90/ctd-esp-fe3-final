@@ -7,13 +7,18 @@ export const ContextGlobal = createContext();
 const initialFavState = [];
 
 const favsReducer = (state, action) => {
-  switch(action.type){
+  switch (action.type) {
     case 'ADD_FAV':
-      console.log("state", action);
-      return [...state, action.payload]
+      
+      if (!state.some((item) => item.id === action.payload.id)) {
+        return [...state, action.payload];
+      } else {
+        return state; 
+      }
+    default:
+      return state;
   }
-}
-
+};
 export const ContextProvider = ({ children }) => {
 
   const [data, setData] = useState([]);
